@@ -1,4 +1,4 @@
-⌨️ FlickeringEffect.
+⌨️ Animated Flickering Effect.
 ======
 
 ------
