@@ -1,6 +1,8 @@
 ⌨️ Animated Flickering Effect.
 ======
 
+https://github.com/user-attachments/assets/dcf70a70-df0b-43f1-8933-a2bec132e6a9
+
 ------
 
 `````ruby
