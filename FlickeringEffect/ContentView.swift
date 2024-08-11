@@ -15,15 +15,39 @@ struct ContentView: View {
     var body: some View {
         VStack {
             HStack {
-                Image(systemName: "")
+                Image(systemName: "clock.fill")
                 Text("Outdoor Walking")
-                      .foregroundStyle(.mint)
                 Spacer()
                 Text("Due 10:00am")
+                    .foregroundStyle(.secondary)
             }
             .padding()
             .background(.thinMaterial)
-            .cornerRadius(10)
+            .cornerRadius(13)
+            .opacity(isFlickering ? 1.0 : 0.5)
+            .foregroundStyle(isFlickering ? .mint : .primary)
+            .animation(.easeInOut(duration: 1.0).repeatForever(), value: isFlickering)
+            .onAppear {
+                isFlickering.toggle()
+            }
+            
+            HStack {
+                Image(systemName: "clock.fill")
+                Text("Outdoor Walking")
+                Spacer()
+                Text("Due 10:00am")
+                    .foregroundStyle(.secondary)
+            }
+            .padding()
+            .background(.thinMaterial)
+            .cornerRadius(13)
+            .phaseAnimator([false, true]) { content, phase in
+                content
+                    .opacity(phase ? 1.0 : 0.5)
+                    .foregroundStyle(isFlickering ? .mint : .primary)
+            } animation: { phase in
+                    .easeInOut(duration: 1.0)
+            }
         }
     }
 }
